@@ -1,8 +1,8 @@
 package com.example.DemoGraphQL.grpc.server;
 
-import com.example.DemoGraphQ.grpc.HelloRequest;
-import com.example.DemoGraphQ.grpc.HelloResponse;
-import com.example.DemoGraphQ.grpc.HelloServiceGrpc.HelloServiceImplBase;
+import com.example.DemoGraphQL.grpc.HelloRequest;
+import com.example.DemoGraphQL.grpc.HelloResponse;
+import com.example.DemoGraphQL.grpc.HelloServiceGrpc.HelloServiceImplBase;
 
 import io.grpc.stub.StreamObserver;
 
