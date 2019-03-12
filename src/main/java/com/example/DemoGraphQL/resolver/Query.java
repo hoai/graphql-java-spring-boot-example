@@ -3,6 +3,7 @@ package com.example.DemoGraphQL.resolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.example.DemoGraphQL.model.Author;
 import com.example.DemoGraphQL.model.Book;
+import com.example.DemoGraphQL.model.Token;
 import com.example.DemoGraphQL.repository.AuthorRepository;
 import com.example.DemoGraphQL.repository.BookRepository;
 
@@ -29,4 +30,9 @@ public class Query implements GraphQLQueryResolver {
     public long countAuthors() {
         return authorRepository.count();
     }
+    
+    public Token loginUser() {
+       return new Token();
+    }
+    
 }
