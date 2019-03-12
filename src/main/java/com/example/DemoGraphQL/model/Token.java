@@ -1,6 +1,5 @@
 package com.example.DemoGraphQL.model;
 
-
 public class Token {
 
     private String access_token;
