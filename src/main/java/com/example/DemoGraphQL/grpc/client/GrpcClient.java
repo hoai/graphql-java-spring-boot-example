@@ -1,5 +1,8 @@
 package com.example.DemoGraphQL.grpc.client;
 
+import com.example.DemoGraphQL.grpc.OauthServiceGrpc;
+import com.example.DemoGraphQL.grpc.OauthServiceOuterClass;
+
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 

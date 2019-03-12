@@ -1,5 +1,8 @@
 package com.example.DemoGraphQL.grpc.server;
 
+import com.example.DemoGraphQL.grpc.OauthServiceGrpc;
+import com.example.DemoGraphQL.grpc.OauthServiceOuterClass;
+
 import io.grpc.stub.StreamObserver;
 
 public class OauthServiceImpl extends OauthServiceGrpc.OauthServiceImplBase {
