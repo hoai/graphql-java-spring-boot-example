@@ -1,28 +1,35 @@
 package com.example.DemoGraphQL.grpc.client;
 
-import com.example.DemoGraphQL.grpc.OauthRequest;
-import com.example.DemoGraphQL.grpc.OauthResponse;
-import com.example.DemoGraphQL.grpc.OautherviceOuterClass;
-
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
 public class GrpcClient {
     public static void main(String[] args) throws InterruptedException {
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8080)
-            .usePlaintext()
+    	// Channel is the abstraction to connect to a service endpoint
+        // Let's use plaintext communication because we don't have certs
+        final ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:5000")
+          .usePlaintext(true)
+          .build();
+
+        // It is up to the client to determine whether to block the call
+        // Here we create a blocking stub, but an async stub,
+        // or an async stub with Future are always possible.
+        OauthServiceGrpc.OauthServiceBlockingStub stub = OauthServiceGrpc.newBlockingStub(channel);
+        OauthServiceOuterClass.OauthRequest request =
+          OauthServiceOuterClass.OauthRequest.newBuilder()
+            .setAuthorization("Basic c3ByaW5nLXNlY3VyaXR5LW9hdXRoMi1yZWFkLXdyaXRlLWNsaWVudDpzcHJpbmctc2VjdXJpdHktb2F1dGgyLXJlYWQtd3JpdGUtY2xpZW50LXBhc3N3b3JkMTIzNA==")
+            .setGrant_type("password")
+            .setUsername("admin")
+            .setPassword("admin1234")
             .build();
 
-        OauthServiceOuterClass.HelloServiceBlockingStub stub 
-          = OauthServiceOuterClass.newBlockingStub(channel);
+        // Finally, make the call using the stub
+        OauthServiceOuterClass.OauthResponse response = 
+          stub.loginUser(request);
 
-        OauthResponse helloResponse = stub.hello(OauthRequest.newBuilder()
-            .setFirstName("Baeldung")
-            .setLastName("gRPC")
-            .build());
+        System.out.println(response);
 
-        System.out.println("Response received from server:\n" + helloResponse);
-
-        channel.shutdown();
+        // A Channel should be shutdown before stopping the process.
+        channel.shutdownNow();
     }
 }
