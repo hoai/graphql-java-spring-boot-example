@@ -21,7 +21,7 @@ public class GrpcClient {
         OauthServiceOuterClass.OauthRequest request =
           OauthServiceOuterClass.OauthRequest.newBuilder()
             .setAuthorization("Basic c3ByaW5nLXNlY3VyaXR5LW9hdXRoMi1yZWFkLXdyaXRlLWNsaWVudDpzcHJpbmctc2VjdXJpdHktb2F1dGgyLXJlYWQtd3JpdGUtY2xpZW50LXBhc3N3b3JkMTIzNA==")
-            .setGrant_type("password")
+            .setGrantType("password")
             .setUsername("admin")
             .setPassword("admin1234")
             .build();

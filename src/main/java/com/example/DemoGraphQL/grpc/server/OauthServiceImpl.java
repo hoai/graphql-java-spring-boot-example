@@ -15,10 +15,10 @@ public class OauthServiceImpl extends OauthServiceGrpc.OauthServiceImplBase {
         
      // You must use a builder to construct a new Protobuffer object
         OauthServiceOuterClass.OauthResponse response = OauthServiceOuterClass.OauthResponse.newBuilder()
-          .setAccess_token("309cc879-06ce-45c2-8c79-79f2f65e1365")
-          .setToken_type("bearer")
-          .setRefresh_token("ef03a088-51f6-4b08-af25-103625790347")
-          .setExpires_in(10799)
+          .setAccessToken("309cc879-06ce-45c2-8c79-79f2f65e1365")
+          .setTokenType("bearer")
+          .setRefreshToken("ef03a088-51f6-4b08-af25-103625790347")
+          .setExpiresIn(10799)
           .setScope("read write")
           .build();
 
