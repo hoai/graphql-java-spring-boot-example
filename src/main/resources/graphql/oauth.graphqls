@@ -1,0 +1,29 @@
+type Token {
+	access_token: String!
+    token_type: String!
+    refresh_token: String!
+    expires_in: Long!
+    scope: String!
+}
+
+type User {
+	aud: [Episode!]!
+	user_name: String!
+	scope: [Episode!]!
+	active:Boolean!
+	exp: Long!
+	authorities:[Episode!]!
+	client_id: String!
+}
+
+type Query {
+    findAllAuthors: [Author]!
+    countAuthors: Long!
+    
+    login: [Token]!
+    getUserDetail: [User]!
+}
+
+type Mutation {
+    newAuthor(firstName: String!, lastName: String!) : Author!
+}
