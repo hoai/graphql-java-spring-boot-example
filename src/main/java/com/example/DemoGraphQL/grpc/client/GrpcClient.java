@@ -1,8 +1,8 @@
 package com.example.DemoGraphQL.grpc.client;
 
-import com.example.DemoGraphQL.grpc.HelloRequest;
-import com.example.DemoGraphQL.grpc.HelloResponse;
-import com.example.DemoGraphQL.grpc.HelloServiceOuterClass;
+import com.example.DemoGraphQL.grpc.OauthRequest;
+import com.example.DemoGraphQL.grpc.OauthResponse;
+import com.example.DemoGraphQL.grpc.OautherviceOuterClass;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -13,10 +13,10 @@ public class GrpcClient {
             .usePlaintext()
             .build();
 
-        HelloServiceOuterClass.HelloServiceBlockingStub stub 
-          = HelloServiceOuterClass.newBlockingStub(channel);
+        OauthServiceOuterClass.HelloServiceBlockingStub stub 
+          = OauthServiceOuterClass.newBlockingStub(channel);
 
-        HelloResponse helloResponse = stub.hello(HelloRequest.newBuilder()
+        OauthResponse helloResponse = stub.hello(OauthRequest.newBuilder()
             .setFirstName("Baeldung")
             .setLastName("gRPC")
             .build());

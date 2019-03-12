@@ -1,16 +1,16 @@
 package com.example.DemoGraphQL.grpc.server;
 
-import com.example.DemoGraphQL.grpc.HelloRequest;
-import com.example.DemoGraphQL.grpc.HelloResponse;
-import com.example.DemoGraphQL.grpc.HelloServiceGrpc.HelloServiceImplBase;
+import com.example.DemoGraphQL.grpc.OauthRequest;
+import com.example.DemoGraphQL.grpc.OauthResponse;
+import com.example.DemoGraphQL.grpc.OauthServiceGrpc.OauthServiceImplBase;
 
 import io.grpc.stub.StreamObserver;
 
-public class HelloServiceImpl extends HelloServiceImplBase {
+public class OauthServiceImpl extends OauthServiceImplBase {
 
     @Override
     public void hello(
-      HelloRequest request, StreamObserver<HelloResponse> responseObserver) {
+    		OauthRequest request, StreamObserver<OauthResponse> responseObserver) {
         System.out.println("Request received from client:\n" + request);
 
         String greeting = new StringBuilder().append("Hello, ")
@@ -19,7 +19,7 @@ public class HelloServiceImpl extends HelloServiceImplBase {
             .append(request.getLastName())
             .toString();
 
-        HelloResponse response = HelloResponse.newBuilder()
+        OauthResponse Oauth = HelloResponse.newBuilder()
             .setGreeting(greeting)
             .build();
 

@@ -1,0 +1,23 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.example.DemoGraphQL.grpc;
+
+
+message OauthRequest {
+	string Authorization = 1;
+    string grant_type = 2;
+    string username = 3;
+    string password = 4;
+}
+
+message OauthResponse {
+    string access_token = 1;
+    string token_type = 2;
+    string refresh_token = 3;
+    int32  expires_in = 4;
+    string scope = 5;
+}
+
+service OauthService {
+    rpc loginUser(OauthRequest) returns (OauthResponse);
+}
