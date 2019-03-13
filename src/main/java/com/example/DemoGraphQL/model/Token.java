@@ -13,7 +13,6 @@ public class Token {
     private String scope;
 
     public Token(String access_token, String token_type, String refresh_token, Long expires_in, String scope) {
-		super();
 		this.access_token = access_token;
 		this.token_type = token_type;
 		this.refresh_token = refresh_token;

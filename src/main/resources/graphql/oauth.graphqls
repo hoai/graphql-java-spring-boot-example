@@ -5,7 +5,12 @@ type Token {
     expires_in: Long!
     scope: String!
 }
-
-extend type Query {
-    loginUser: Token!
+input AuthData {
+      authorization: String!
+      grant_type: String!
+      username: String!
+      password: String!
+}
+extend type Mutation {
+    loginUser(auth: AuthData): Token!
 }

@@ -31,9 +31,6 @@ public class Query implements GraphQLQueryResolver {
         return authorRepository.count();
     }
     
-    public Token loginUser() {
-       Token result = new Token("309cc879-06ce-45c2-8c79-79f2f65e1365", "bearer", "ef03a088-51f6-4b08-af25-103625790347", (long) 10799, "read write");
-       return result;
-    }
+   
     
 }
