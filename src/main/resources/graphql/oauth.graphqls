@@ -6,24 +6,6 @@ type Token {
     scope: String!
 }
 
-type User {
-	aud: [Episode!]!
-	user_name: String!
-	scope: [Episode!]!
-	active:Boolean!
-	exp: Long!
-	authorities:[Episode!]!
-	client_id: String!
-}
-
-type Query {
-    findAllAuthors: [Author]!
-    countAuthors: Long!
-    
-    loginUser: [Token]!
-    getUserDetail: [User]!
-}
-
-type Mutation {
-    newAuthor(firstName: String!, lastName: String!) : Author!
+extend type Query {
+    loginUser: Token!
 }
