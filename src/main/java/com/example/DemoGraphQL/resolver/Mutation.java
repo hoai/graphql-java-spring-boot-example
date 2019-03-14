@@ -67,7 +67,9 @@ public class Mutation implements GraphQLMutationResolver {
 //        }
 		try {
 			OauthResponse response1 = GrpcClient.init(auth);
-			Token result = new Token("309cc879-06ce-45c2-8c79-79f2f65e1365", "bearer", "ef03a088-51f6-4b08-af25-103625790347", (long) 10799, response1.getAccessToken());
+			System.out.println("Request received from server:\n" + response1);
+			
+			Token result = new Token(response1.getAccessToken(), response1.getTokenType(), response1.getRefreshToken(), (long) response1.getExpiresIn(), response1.getScope());
 
 			return result;
 		} catch (InterruptedException e) {
