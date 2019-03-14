@@ -1,7 +1,7 @@
-package com.example.DemoGraphQL.grpc.server;
+package com.lampart.demo.grpc.server;
 
-import com.example.DemoGraphQL.grpc.OauthServiceGrpc;
-import com.example.DemoGraphQL.grpc.OauthServiceOuterClass;
+import com.lampart.demo.grpc.OauthServiceGrpc;
+import com.lampart.demo.grpc.OauthServiceOuterClass;
 
 import io.grpc.stub.StreamObserver;
 

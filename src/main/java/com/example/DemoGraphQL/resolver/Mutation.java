@@ -2,14 +2,14 @@ package com.example.DemoGraphQL.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.example.DemoGraphQL.exception.BookNotFoundException;
-import com.example.DemoGraphQL.grpc.OauthServiceOuterClass.OauthResponse;
-import com.example.DemoGraphQL.grpc.client.GrpcClient;
+import com.lampart.demo.grpc.OauthServiceOuterClass.OauthResponse;
 import com.example.DemoGraphQL.model.AuthData;
 import com.example.DemoGraphQL.model.Author;
 import com.example.DemoGraphQL.model.Book;
 import com.example.DemoGraphQL.model.Token;
 import com.example.DemoGraphQL.repository.AuthorRepository;
 import com.example.DemoGraphQL.repository.BookRepository;
+import com.lampart.demo.grpc.client.GrpcClient;
 
 public class Mutation implements GraphQLMutationResolver {
     private BookRepository bookRepository;
@@ -59,7 +59,7 @@ public class Mutation implements GraphQLMutationResolver {
         return book;
     }
     
-    public OauthResponse loginUser(AuthData auth) throws IllegalAccessException {
+    public Token loginUser(AuthData auth) throws IllegalAccessException {
     	//String password = auth.getPassword();
        // Token result = new Token("309cc879-06ce-45c2-8c79-79f2f65e1365", "bearer", "ef03a088-51f6-4b08-af25-103625790347", (long) 10799, "read write");
 //        if(password == "admin1234" ) {
@@ -67,7 +67,9 @@ public class Mutation implements GraphQLMutationResolver {
 //        }
 		try {
 			OauthResponse response1 = GrpcClient.init(auth);
-			return response1;
+			Token result = new Token("309cc879-06ce-45c2-8c79-79f2f65e1365", "bearer", "ef03a088-51f6-4b08-af25-103625790347", (long) 10799, response1.getAccessToken());
+
+			return result;
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

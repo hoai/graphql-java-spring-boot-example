@@ -1,7 +1,7 @@
 syntax = "proto3";
 //option java_multiple_files = true;
-package com.example.DemoGraphQL.grpc;
-option java_package = "com.example.DemoGraphQL.grpc";
+package com.lampart.demo.grpc;
+option java_package = "com.lampart.demo.grpc";
 
 message OauthRequest {
 	string Authorization = 1;
