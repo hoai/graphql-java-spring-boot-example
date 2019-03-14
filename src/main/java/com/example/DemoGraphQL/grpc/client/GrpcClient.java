@@ -8,13 +8,12 @@ import com.example.DemoGraphQL.model.AuthData;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
-import com.codenotfound.grpc.HelloWorldClient;
 import com.example.DemoGraphQL.grpc.OauthServiceGrpc;
 import com.example.DemoGraphQL.grpc.OauthServiceOuterClass;
 
 public class GrpcClient {
 	 private static final Logger LOGGER =
-		      LoggerFactory.getLogger(HelloWorldClient.class);
+		      LoggerFactory.getLogger(GrpcClient.class);
     public static void init(AuthData auth) throws InterruptedException {
     	// Channel is the abstraction to connect to a service endpoint
         // Let's use plaintext communication because we don't have certs
