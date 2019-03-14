@@ -18,7 +18,7 @@ public class GrpcClient {
 	public static OauthResponse init(AuthData auth) throws InterruptedException {
 		// Channel is the abstraction to connect to a service endpoint
 		// Let's use plaintext communication because we don't have certs
-		final ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 6565).usePlaintext(true).build();
+		final ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 4001).usePlaintext(true).build();
 
 		// It is up to the client to determine whether to block the call
 		// Here we create a blocking stub, but an async stub,
