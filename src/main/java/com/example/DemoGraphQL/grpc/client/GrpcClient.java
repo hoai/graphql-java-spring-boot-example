@@ -10,11 +10,12 @@ import io.grpc.ManagedChannelBuilder;
 
 import com.example.DemoGraphQL.grpc.OauthServiceGrpc;
 import com.example.DemoGraphQL.grpc.OauthServiceOuterClass;
+import com.example.DemoGraphQL.grpc.OauthServiceOuterClass.OauthResponse;
 
 public class GrpcClient {
 	 private static final Logger LOGGER =
 		      LoggerFactory.getLogger(GrpcClient.class);
-    public static void init(AuthData auth) throws InterruptedException {
+    public static OauthResponse init(AuthData auth) throws InterruptedException {
     	// Channel is the abstraction to connect to a service endpoint
         // Let's use plaintext communication because we don't have certs
         final ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:6565")
@@ -38,8 +39,13 @@ public class GrpcClient {
           stub.loginUser(request);
 
         System.out.println(response);
+        
+       
 
         // A Channel should be shutdown before stopping the process.
         channel.shutdownNow();
+        
+        return response;
+        		
     }
 }
