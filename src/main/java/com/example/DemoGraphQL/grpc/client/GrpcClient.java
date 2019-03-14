@@ -1,16 +1,23 @@
 package com.example.DemoGraphQL.grpc.client;
 
-import com.example.DemoGraphQL.grpc.OauthServiceGrpc;
-import com.example.DemoGraphQL.grpc.OauthServiceOuterClass;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.example.DemoGraphQL.model.AuthData;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
+import com.example.DemoGraphQL.grpc.OauthServiceGrpc;
+import com.example.DemoGraphQL.grpc.OauthServiceOuterClass;
+
 public class GrpcClient {
-    public static void main(String[] args) throws InterruptedException {
+	private static final Logger LOGGER =
+		      LoggerFactory.getLogger(GrpcClient.class);
+    public static void init(AuthData auth) throws InterruptedException {
     	// Channel is the abstraction to connect to a service endpoint
         // Let's use plaintext communication because we don't have certs
-        final ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:5000")
+        final ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:6565")
           .usePlaintext(true)
           .build();
 
