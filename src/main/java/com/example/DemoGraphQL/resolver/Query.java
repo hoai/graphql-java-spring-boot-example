@@ -44,12 +44,12 @@ public class Query implements GraphQLQueryResolver {
 			
 			Company company_result = new Company(response1.getId(), response1.getName());
 
-			DepartmentResponse response2 = DepartmentClient.init(id);
-			System.out.println("Request received from microserver 2:\n" + response2);
-			
-			Department department_result = new Department(response2.getId(), response2.getName());
-			
-			company_result.setDepartment(department_result);
+//			DepartmentResponse response2 = DepartmentClient.init(id);
+//			System.out.println("Request received from microserver 2:\n" + response2);
+//			
+//			Department department_result = new Department(response2.getId(), response2.getName());
+//			
+//			company_result.setDepartment(department_result);
 			
 			return company_result;
 		} catch (InterruptedException e) {
