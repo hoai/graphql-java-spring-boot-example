@@ -2,22 +2,12 @@ package com.example.DemoGraphQL.model;
 
 public class Company {
 
-    private Integer id;
+	private Integer id;
 
-    private String name;
-    
-    private Department department;
+	private String name;
 
 	public Integer getId() {
 		return id;
-	}
-
-	public Department getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
 	}
 
 	public void setId(Integer id) {
@@ -36,7 +26,5 @@ public class Company {
 		this.id = id;
 		this.name = name;
 	}
-    
 
-  
 }

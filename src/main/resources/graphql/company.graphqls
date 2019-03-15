@@ -1,7 +1,7 @@
 type Company {
 	id: ID!
     name: String!
-    department: [Department]!
+    department: Department!
 }
 type Department {
 	id: ID!
