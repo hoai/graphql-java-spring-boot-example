@@ -1,6 +1,11 @@
 type Company {
 	id: ID!
     name: String!
+    department: [Department]!
+}
+type Department {
+	id: ID!
+    name: String!
 }
 extend type Query  {
     getCompany(id: ID!): Company!

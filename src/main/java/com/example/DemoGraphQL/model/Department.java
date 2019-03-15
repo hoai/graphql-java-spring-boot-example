@@ -1,23 +1,13 @@
 package com.example.DemoGraphQL.model;
 
-public class Company {
+public class Department {
 
     private Integer id;
 
     private String name;
-    
-    private Department department;
 
 	public Integer getId() {
 		return id;
-	}
-
-	public Department getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(Department department) {
-		this.department = department;
 	}
 
 	public void setId(Integer id) {
@@ -32,7 +22,7 @@ public class Company {
 		this.name = name;
 	}
 
-	public Company(Integer id, String name) {
+	public Department(Integer id, String name) {
 		this.id = id;
 		this.name = name;
 	}

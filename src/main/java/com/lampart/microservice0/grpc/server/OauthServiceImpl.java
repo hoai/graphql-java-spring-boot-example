@@ -1,4 +1,4 @@
-package com.lampart.demo.grpc.server;
+package com.lampart.microservice0.grpc.server;
 
 import com.lampart.demo.grpc.OauthServiceGrpc;
 import com.lampart.demo.grpc.OauthServiceOuterClass;

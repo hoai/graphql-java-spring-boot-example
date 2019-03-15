@@ -1,4 +1,4 @@
-package com.lampart.demo.grpc.client;
+package com.lampart.microservice0.grpc.client;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

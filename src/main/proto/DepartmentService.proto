@@ -1,0 +1,17 @@
+syntax = "proto3";
+//option java_multiple_files = true;
+package com.lampart.microservice2.grpc;
+option java_package = "com.lampart.microservice2.grpc";
+
+message DepartmentRequest {
+	int32 id = 1;
+}
+
+message DepartmentResponse {
+    int32 id = 1;
+    string name = 2;
+}
+
+service DepartmentService {
+    rpc getDepartment(DepartmentRequest) returns (DepartmentResponse);
+}

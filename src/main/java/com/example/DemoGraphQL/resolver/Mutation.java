@@ -3,13 +3,13 @@ package com.example.DemoGraphQL.resolver;
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.example.DemoGraphQL.exception.BookNotFoundException;
 import com.lampart.demo.grpc.OauthServiceOuterClass.OauthResponse;
+import com.lampart.microservice0.grpc.client.GrpcClient;
 import com.example.DemoGraphQL.model.AuthData;
 import com.example.DemoGraphQL.model.Author;
 import com.example.DemoGraphQL.model.Book;
 import com.example.DemoGraphQL.model.Token;
 import com.example.DemoGraphQL.repository.AuthorRepository;
 import com.example.DemoGraphQL.repository.BookRepository;
-import com.lampart.demo.grpc.client.GrpcClient;
 
 public class Mutation implements GraphQLMutationResolver {
     private BookRepository bookRepository;

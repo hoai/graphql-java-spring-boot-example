@@ -1,4 +1,4 @@
-package com.lampart.demo.grpc.server;
+package com.lampart.microservice0.grpc.server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
