@@ -28,7 +28,7 @@
 		<io.grpc.version>1.16.1</io.grpc.version>
 		<os-maven-plugin.version>1.6.1</os-maven-plugin.version>
 		<protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
-		
+
 		<spring-cloud.version>Edgware.RELEASE</spring-cloud.version>
 
 	</properties>
@@ -50,7 +50,7 @@
 			<version>2.1.1.RELEASE</version>
 		</dependency>
 
-	
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -107,21 +107,21 @@
 			<artifactId>grpc-stub</artifactId>
 			<version>${io.grpc.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        
-        
-        <dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+
+		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>23.6-jre</version>
@@ -131,16 +131,23 @@
 			<artifactId>httpcore</artifactId>
 			<version>4.4.8</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 			<version>1.4.5.RELEASE</version>
 		</dependency>
-		
+
+		<!-- https://mvnrepository.com/artifact/com.netflix.ribbon/ribbon -->
+		<dependency>
+			<groupId>com.netflix.ribbon</groupId>
+			<artifactId>ribbon</artifactId>
+			<version>2.4.2</version>
+		</dependency>
+
 
 	</dependencies>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -152,7 +159,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
+
 	<build>
 		<extensions>
 			<extension>

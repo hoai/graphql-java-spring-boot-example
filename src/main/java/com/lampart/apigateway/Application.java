@@ -8,8 +8,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.context.annotation.Bean;
 
+import com.lampart.apigateway.config.RibbonConfiguration;
 import com.lampart.apigateway.exception.GraphQLErrorAdapter;
 import com.lampart.apigateway.model.Author;
 import com.lampart.apigateway.model.Book;
@@ -23,6 +25,7 @@ import graphql.ExceptionWhileDataFetching;
 import graphql.GraphQLError;
 import graphql.servlet.GraphQLErrorHandler;
 
+@RibbonClient(name = "ping-a-server", configuration = RibbonConfiguration.class)
 @SpringBootApplication
 @EnableDiscoveryClient
 public class Application {

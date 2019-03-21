@@ -6,6 +6,7 @@ eureka:
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2
   client:
+    fetchRegistry: true
     serviceUrl:
       defaultZone: http://${eureka.host:localhost}:${eureka.port:4006}/eureka/
     healthcheck:
@@ -16,3 +17,11 @@ logging:
   level:
     com.lampart.apigateway: DEBUG
     org.springframework.web: DEBUG
+    
+# -- Configure for Ribbon:  
+ping-server:
+  ribbon:
+    eureka:
+      enabled: false # Disable Default Ping
+    listOfServers: localhost:4002,localhost:4003,localhost:5002,localhost:5003
+    ServerListRefreshInterval: 15000
