@@ -1,9 +1,9 @@
-package com.example.DemoGraphQL.resolver;
+package com.lampart.apigateway.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLResolver;
-import com.example.DemoGraphQL.model.Author;
-import com.example.DemoGraphQL.model.Book;
-import com.example.DemoGraphQL.repository.AuthorRepository;
+import com.lampart.apigateway.model.Author;
+import com.lampart.apigateway.model.Book;
+import com.lampart.apigateway.repository.AuthorRepository;
 
 public class BookResolver implements GraphQLResolver<Book> {
     private AuthorRepository authorRepository;

@@ -3,11 +3,10 @@ package com.lampart.microservice0.grpc.client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.DemoGraphQL.model.AuthData;
-
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
+import com.lampart.apigateway.model.AuthData;
 import com.lampart.demo.grpc.OauthServiceGrpc;
 import com.lampart.demo.grpc.OauthServiceOuterClass;
 import com.lampart.demo.grpc.OauthServiceOuterClass.OauthResponse;

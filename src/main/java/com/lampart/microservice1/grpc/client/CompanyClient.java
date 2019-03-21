@@ -3,11 +3,10 @@ package com.lampart.microservice1.grpc.client;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.example.DemoGraphQL.model.Company;
-
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
+import com.lampart.apigateway.model.Company;
 import com.lampart.microservice1.grpc.CompanyServiceGrpc;
 import com.lampart.microservice1.grpc.CompanyServiceOuterClass;
 import com.lampart.microservice1.grpc.CompanyServiceOuterClass.CompanyResponse;

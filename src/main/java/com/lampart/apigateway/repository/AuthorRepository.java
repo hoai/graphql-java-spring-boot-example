@@ -1,7 +1,8 @@
-package com.example.DemoGraphQL.repository;
+package com.lampart.apigateway.repository;
 
-import com.example.DemoGraphQL.model.Author;
 import org.springframework.data.repository.CrudRepository;
+
+import com.lampart.apigateway.model.Author;
 
 public interface AuthorRepository extends CrudRepository<Author, Long> {
 }

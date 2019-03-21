@@ -1,30 +1,34 @@
-package com.example.DemoGraphQL;
-
-import com.example.DemoGraphQL.exception.GraphQLErrorAdapter;
-import com.example.DemoGraphQL.model.Author;
-import com.example.DemoGraphQL.model.Book;
-import com.example.DemoGraphQL.repository.AuthorRepository;
-import com.example.DemoGraphQL.repository.BookRepository;
-import com.example.DemoGraphQL.resolver.BookResolver;
-import com.example.DemoGraphQL.resolver.Mutation;
-import com.example.DemoGraphQL.resolver.Query;
-import graphql.ExceptionWhileDataFetching;
-import graphql.GraphQLError;
-import graphql.servlet.GraphQLErrorHandler;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+package com.lampart.apigateway;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.Bean;
+
+import com.lampart.apigateway.exception.GraphQLErrorAdapter;
+import com.lampart.apigateway.model.Author;
+import com.lampart.apigateway.model.Book;
+import com.lampart.apigateway.repository.AuthorRepository;
+import com.lampart.apigateway.repository.BookRepository;
+import com.lampart.apigateway.resolver.BookResolver;
+import com.lampart.apigateway.resolver.Mutation;
+import com.lampart.apigateway.resolver.Query;
+
+import graphql.ExceptionWhileDataFetching;
+import graphql.GraphQLError;
+import graphql.servlet.GraphQLErrorHandler;
+
 @SpringBootApplication
-public class DemoGraphQlApplication {
+@EnableDiscoveryClient
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoGraphQlApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 	@Bean

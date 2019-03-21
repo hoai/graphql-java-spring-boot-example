@@ -1,12 +1,12 @@
-package com.example.DemoGraphQL.resolver;
+package com.lampart.apigateway.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
-import com.example.DemoGraphQL.model.Author;
-import com.example.DemoGraphQL.model.Book;
-import com.example.DemoGraphQL.model.Company;
-import com.example.DemoGraphQL.model.Department;
-import com.example.DemoGraphQL.repository.AuthorRepository;
-import com.example.DemoGraphQL.repository.BookRepository;
+import com.lampart.apigateway.model.Author;
+import com.lampart.apigateway.model.Book;
+import com.lampart.apigateway.model.Company;
+import com.lampart.apigateway.model.Department;
+import com.lampart.apigateway.repository.AuthorRepository;
+import com.lampart.apigateway.repository.BookRepository;
 import com.lampart.microservice1.grpc.CompanyServiceOuterClass.CompanyResponse;
 import com.lampart.microservice1.grpc.client.CompanyClient;
 import com.lampart.microservice2.grpc.client.DepartmentClient;

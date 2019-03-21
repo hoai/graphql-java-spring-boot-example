@@ -1,4 +1,4 @@
-package com.example.DemoGraphQL.exception;
+package com.lampart.apigateway.exception;
 
 import graphql.ErrorType;
 import graphql.ExceptionWhileDataFetching;

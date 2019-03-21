@@ -1,4 +1,4 @@
-package com.example.DemoGraphQL.model;
+package com.lampart.apigateway.model;
 
 import java.util.List;
 
