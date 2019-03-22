@@ -20,19 +20,19 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
 public class CompanyClient {
-	
-    private DiscoveryClient discoveryClient;
- 
-    private LoadBalancerClient loadBalancer;
+//	
+//    private DiscoveryClient discoveryClient;
+// 
+//    private LoadBalancerClient loadBalancer;
     
 	private static final Logger LOGGER = LoggerFactory.getLogger(CompanyClient.class);
 
-	public CompanyClient(DiscoveryClient discoveryClient, LoadBalancerClient loadBalancer) {
-		this.discoveryClient = discoveryClient;
-		this.loadBalancer = loadBalancer;
-	}
+//	public CompanyClient(DiscoveryClient discoveryClient, LoadBalancerClient loadBalancer) {
+//		this.discoveryClient = discoveryClient;
+//		this.loadBalancer = loadBalancer;
+//	}
 
-	public  CompanyResponse init(Integer Id) throws InterruptedException {
+	public static  CompanyResponse init(Integer Id, DiscoveryClient discoveryClient, LoadBalancerClient loadBalancer) throws InterruptedException {
 		
 		String serviceName = "MICROSERVICE1".toLowerCase();
 		System.out.println(discoveryClient.getServices());
@@ -49,9 +49,9 @@ public class CompanyClient {
 // 
 //        html += "<br><h4>Call /hello of service: " + serviceName + "</h4>";
         
-        try {
+//        try {
             // May be throw IllegalStateException (No instances available)
-            ServiceInstance serviceInstance = this.loadBalancer.choose(serviceName);
+            ServiceInstance serviceInstance = loadBalancer.choose(serviceName);
  
             //html += "<br>===> Load Balancer choose: " + serviceInstance.getUri();
  
@@ -61,6 +61,7 @@ public class CompanyClient {
          // Channel is the abstraction to connect to a service endpoint
     		// Let's use plaintext communication because we don't have certs
     		final ManagedChannel channel = ManagedChannelBuilder.forAddress(serviceInstance.getHost(), serviceInstance.getPort()).usePlaintext(true).build();
+    		//final ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 4002).usePlaintext(true).build();
 
     		// It is up to the client to determine whether to block the call
     		// Here we create a blocking stub, but an async stub,
@@ -77,15 +78,15 @@ public class CompanyClient {
     		channel.shutdownNow();
     		return response;
             
-        } catch (IllegalStateException e) {
-            //html += "<br>loadBalancer.choose ERROR: " + e.getMessage();
-            e.printStackTrace();
-        } catch (Exception e) {
-            //html += "<br>Other ERROR: " + e.getMessage();
-            e.printStackTrace();
-        }
-        
-        return null;
+//        } catch (IllegalStateException e) {
+//            //html += "<br>loadBalancer.choose ERROR: " + e.getMessage();
+//            e.printStackTrace();
+//        } catch (Exception e) {
+//            //html += "<br>Other ERROR: " + e.getMessage();
+//            e.printStackTrace();
+//        }
+//        
+//        return null;
         
 		
 

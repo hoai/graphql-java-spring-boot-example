@@ -50,8 +50,8 @@ public class Query implements GraphQLQueryResolver {
     public Company getCompany(Integer id) throws IllegalAccessException {
 
 		try {
-			CompanyClient comp = new CompanyClient(discoveryClient, loadBalancer);
-			CompanyResponse response1 = comp.init(id);
+//			CompanyClient comp = new CompanyClient();
+			CompanyResponse response1 = CompanyClient.init(id, discoveryClient, loadBalancer);
 			System.out.println("Request received from microserver 1:\n" + response1);
 			
 			Company company_result = new Company(response1.getId(), response1.getName());
