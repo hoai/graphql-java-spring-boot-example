@@ -19,9 +19,9 @@ logging:
     org.springframework.web: DEBUG
     
 # -- Configure for Ribbon:  
-ping-server:
+microservice1-server:
   ribbon:
     eureka:
       enabled: false # Disable Default Ping
-    listOfServers: localhost:4002,localhost:4004,localhost:5002,localhost:5004
+    listOfServers: localhost:4002,localhost:4004
     ServerListRefreshInterval: 15000

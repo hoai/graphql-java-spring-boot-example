@@ -1,5 +1,9 @@
 package com.lampart.apigateway.resolver;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.lampart.apigateway.model.Author;
 import com.lampart.apigateway.model.Book;
@@ -13,6 +17,13 @@ import com.lampart.microservice2.grpc.client.DepartmentClient;
 import com.lampart.microservice2.grpc.DepartmentServiceOuterClass.DepartmentResponse;
 
 public class Query implements GraphQLQueryResolver {
+	
+	@Autowired
+    private DiscoveryClient discoveryClient;
+ 
+    @Autowired
+    private LoadBalancerClient loadBalancer;
+    
     private BookRepository bookRepository;
     private AuthorRepository authorRepository;
 
@@ -39,7 +50,7 @@ public class Query implements GraphQLQueryResolver {
     public Company getCompany(Integer id) throws IllegalAccessException {
 
 		try {
-			CompanyClient comp = new CompanyClient();
+			CompanyClient comp = new CompanyClient(discoveryClient, loadBalancer);
 			CompanyResponse response1 = comp.init(id);
 			System.out.println("Request received from microserver 1:\n" + response1);
 			

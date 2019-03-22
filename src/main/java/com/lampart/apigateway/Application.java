@@ -25,7 +25,7 @@ import graphql.ExceptionWhileDataFetching;
 import graphql.GraphQLError;
 import graphql.servlet.GraphQLErrorHandler;
 
-@RibbonClient(name = "ping-a-server", configuration = RibbonConfiguration.class)
+@RibbonClient(name = "microservice1-server", configuration = RibbonConfiguration.class)
 @SpringBootApplication
 @EnableDiscoveryClient
 public class Application {

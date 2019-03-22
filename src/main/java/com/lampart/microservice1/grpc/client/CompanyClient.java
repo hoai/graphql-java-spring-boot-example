@@ -12,44 +12,51 @@ import org.springframework.cloud.client.loadbalancer.ServiceInstanceChooser;
 import com.lampart.microservice1.grpc.CompanyServiceGrpc;
 import com.lampart.microservice1.grpc.CompanyServiceOuterClass;
 import com.lampart.microservice1.grpc.CompanyServiceOuterClass.CompanyResponse;
-import com.netflix.appinfo.InstanceInfo;
-import com.netflix.discovery.DiscoveryClient;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 
 import graphql.GraphQLException;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
 public class CompanyClient {
-    @Autowired
+	
     private DiscoveryClient discoveryClient;
  
-    @Autowired
     private LoadBalancerClient loadBalancer;
     
 	private static final Logger LOGGER = LoggerFactory.getLogger(CompanyClient.class);
 
+	public CompanyClient(DiscoveryClient discoveryClient, LoadBalancerClient loadBalancer) {
+		this.discoveryClient = discoveryClient;
+		this.loadBalancer = loadBalancer;
+	}
+
 	public  CompanyResponse init(Integer Id) throws InterruptedException {
 		
-		String serviceId = "microservice1";
-		List<InstanceInfo> instances = this.discoveryClient.getInstancesById(serviceId);
-		if (instances == null || instances.isEmpty()) {
-			throw new GraphQLException("No instances for service: " + serviceId); 
-        }
-		String html = "<h2>Instances for Service Id: " + serviceId + "</h2>";
-		 
-        for (InstanceInfo serviceInstance : instances) {
-            html += "<h3>Instance :" + serviceInstance.getId() + "</h3>";
-        }
- 
-        html += "<br><h4>Call /hello of service: " + serviceId + "</h4>";
+		String serviceName = "MICROSERVICE1".toLowerCase();
+		System.out.println(discoveryClient.getServices());
+//		List<ServiceInstance> instances = discoveryClient.getInstances(serviceName);
+//		if (instances == null || instances.isEmpty()) {
+//			throw new GraphQLException("No instances for service: " + serviceName); 
+//        }
+//		String html = "<h2>Instances for Service Id: " + serviceName + "</h2>";
+//		 
+//        for (ServiceInstance serviceInstance : instances) {
+//            html += "<h3>Instance :" + serviceInstance.getUri() + "</h3>";
+//            System.out.println(serviceInstance.getUri());
+//        }
+// 
+//        html += "<br><h4>Call /hello of service: " + serviceName + "</h4>";
         
         try {
             // May be throw IllegalStateException (No instances available)
-            ServiceInstance serviceInstance = this.loadBalancer.choose(serviceId);
+            ServiceInstance serviceInstance = this.loadBalancer.choose(serviceName);
  
-            html += "<br>===> Load Balancer choose: " + serviceInstance.getUri();
+            //html += "<br>===> Load Balancer choose: " + serviceInstance.getUri();
  
-            String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/";
+            String url = "choose host: http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/";
+            System.out.println(url);
  
          // Channel is the abstraction to connect to a service endpoint
     		// Let's use plaintext communication because we don't have certs
@@ -68,19 +75,21 @@ public class CompanyClient {
 
     		// A Channel should be shutdown before stopping the process.
     		channel.shutdownNow();
-            
+    		return response;
             
         } catch (IllegalStateException e) {
-            html += "<br>loadBalancer.choose ERROR: " + e.getMessage();
+            //html += "<br>loadBalancer.choose ERROR: " + e.getMessage();
             e.printStackTrace();
         } catch (Exception e) {
-            html += "<br>Other ERROR: " + e.getMessage();
+            //html += "<br>Other ERROR: " + e.getMessage();
             e.printStackTrace();
         }
         
+        return null;
+        
 		
 
-		return response;
+		
 
 	}
 }
